@@ -4,233 +4,186 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GeneaLumen — Kalbantis AI avataras</title>
-
 <link rel="stylesheet" href="styles.css">
-
 </head>
 
 <body>
 
 <nav class="nav">
-
-<div class="nav__inner">
-
-<a class="nav__brand" href="#top">GeneaLumen</a>
-
-<button id="navBurger" class="nav__burger">☰</button>
-
-<div id="navLinks" class="nav__links">
-
-<a href="#avatar">Avataras</a>
-<a href="#audio">Audio</a>
-<a href="#heygen">HeyGen video</a>
-<a href="#research">Tyrimo video</a>
-<a href="#process">Procesas</a>
-
-</div>
-
-</div>
-
+  <div class="nav__inner">
+    <a class="nav__brand" href="#top">GeneaLumen</a>
+    <button id="navBurger" class="nav__burger" aria-label="Atidaryti meniu">☰</button>
+    <div id="navLinks" class="nav__links">
+      <a href="#avatar" class="nav__link">Avataras</a>
+      <a href="#audio" class="nav__link">Audio</a>
+      <a href="#heygen" class="nav__link">HeyGen video</a>
+      <a href="#research" class="nav__link">Tyrimo video</a>
+      <a href="#process" class="nav__link">Procesas</a>
+    </div>
+  </div>
 </nav>
-
 
 <main class="main" id="top">
 
-<header class="hero">
+  <header class="hero">
+    <h1>Kalbantis avataras: nuo nuotraukos iki video</h1>
+    <p>Šis projektas parodo, kaip dirbtinio intelekto įrankiai gali būti naudojami kuriant pasakojimą apie giminės istoriją.</p>
+  </header>
 
-<h1>Kalbantis avataras: nuo nuotraukos iki video</h1>
+  <div class="creation-grid">
+    <div class="creation-grid__assets">
+      <section id="avatar" class="section">
+        <h2>1) Avataro nuotrauka</h2>
+        <div class="card">
+          <img src="assets/img/avatar.png" alt="Sugeneruota avataro nuotrauka" class="media-img">
+        </div>
+      </section>
 
-<p>
-Šis projektas parodo, kaip dirbtinio intelekto įrankiai gali būti naudojami kuriant pasakojimą apie giminės istoriją.
-</p>
+      <section id="audio" class="section">
+        <h2>2) Avataro balsas</h2>
+        <div class="card">
+          <audio controls class="player">
+            <source src="assets/audio/avatar.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </section>
+    </div>
 
-</header>
+    <div class="creation-grid__result">
+      <section id="heygen" class="section">
+        <h2>3) Kalbantis avataras (HeyGen)</h2>
+        <div class="card card--tight">
+          <div class="phone-frame">
+            <video class="video video--phone" controls preload="metadata" poster="assets/img/avatar.png">
+              <source src="assets/video/avatar.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
 
+  <section id="research" class="section">
+    <h2>4) Mano giminės tyrimo video</h2>
+    <div class="card card--tight">
+      <button class="preview" data-modal-open="researchModal" aria-label="Atidaryti tyrimo vaizdo įrašą">
+        <div class="preview__media">
+          <video class="video video--preview" muted preload="metadata">
+            <source src="assets/video/genealogy-research.mp4" type="video/mp4">
+          </video>
+          <span class="preview__play">▶</span>
+        </div>
+      </button>
+    </div>
+  </section>
 
-<section id="avatar" class="section">
-
-<h2>1) Avataro nuotrauka</h2>
-
-<div class="card">
-
-<img src="assets/img/avatar.png" class="media-img">
-
-</div>
-
-</section>
-
-
-
-<section id="audio" class="section">
-
-<h2>2) Avataro balsas</h2>
-
-<div class="card">
-
-<audio controls class="player">
-<source src="assets/audio/avatar.mp3" type="audio/mpeg">
-</audio>
-
-</div>
-
-</section>
-
-
-
-<section id="heygen" class="section">
-
-<h2>3) Kalbantis avataras (HeyGen)</h2>
-
-<div class="card card--tight">
-
-<div class="phone-frame">
-
-<video class="video video--phone" controls preload="metadata">
-
-<source src="assets/video/avatar.mp4" type="video/mp4">
-
-</video>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<section id="research" class="section">
-
-<h2>4) Mano giminės tyrimo video</h2>
-
-<div class="card card--tight">
-
-<button
-class="preview"
-data-modal-open="researchModal"
->
-
-<div class="preview__media">
-
-<video class="video video--preview" muted preload="metadata">
-
-<source src="assets/video/genealogy-research.mp4" type="video/mp4">
-
-</video>
-
-<span class="preview__play">▶</span>
-
-</div>
-
-</button>
-
-</div>
-
-</section>
-
-
-
-<section id="process" class="section">
-
-<h2>Procesas</h2>
-
-<div class="card">
-
-<ol id="processText">
-
-<li>Avataro nuotrauka sugeneruota naudojant dirbtinio intelekto vaizdų generavimo modelį.</li>
-
-<li>Tekstas paruoštas su kalbos modelio pagalba.</li>
-
-<li>Balsas sugeneruotas naudojant ElevenLabs.</li>
-
-<li>Kalbantis avataras sukurtas HeyGen platformoje.</li>
-
-<li>Visa medžiaga integruota į HTML puslapį ir publikuota GitHub Pages.</li>
-
-</ol>
-
-<button id="copyBtn" class="copy-btn" data-target="processText">
-
-Kopijuoti procesą
-
-</button>
-
-</div>
-
-</section>
-
+  <section id="process" class="section">
+    <h2>Procesas</h2>
+    <div class="card">
+      <ol id="processText" class="process">
+        <li>Avataro nuotrauka sugeneruota naudojant dirbtinio intelekto vaizdų generavimo modelį.</li>
+        <li>Tekstas paruoštas su kalbos modelio pagalba.</li>
+        <li>Balsas sugeneruotas naudojant ElevenLabs.</li>
+        <li>Kalbantis avataras sukurtas HeyGen platformoje.</li>
+        <li>Visa medžiaga integruota į HTML puslapį ir publikuota GitHub Pages.</li>
+      </ol>
+      <button id="copyBtn" class="copy-btn" data-target="processText">
+        <span class="copy-btn__label">Kopijuoti procesą</span>
+        <span class="copy-btn__done">Nukopijuota!</span>
+      </button>
+    </div>
+  </section>
 
 </main>
 
-
-
-<div id="researchModal" class="modal">
-
-<div class="modal__backdrop" data-modal-close="researchModal"></div>
-
-<div class="modal__panel">
-
-<div class="modal__header">
-
-<div class="modal__title">Giminės tyrimo video</div>
-
-<button class="modal__close" data-modal-close="researchModal">✕</button>
-
+<div id="researchModal" class="modal" role="dialog" aria-modal="true">
+  <div class="modal__backdrop" data-modal-close="researchModal"></div>
+  <div class="modal__panel">
+    <div class="modal__header">
+      <div class="modal__title">Giminės tyrimo video</div>
+      <button class="modal__close" data-modal-close="researchModal" aria-label="Uždaryti langą">✕</button>
+    </div>
+    <div class="modal__body">
+      <video id="researchVideo" class="video video--modal" controls preload="metadata">
+        <source src="assets/video/genealogy-research.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
 </div>
-
-<div class="modal__body">
-
-<video id="researchVideo" class="video video--modal" controls>
-
-<source src="assets/video/genealogy-research.mp4" type="video/mp4">
-
-</video>
-
-</div>
-
-</div>
-
-</div>
-
-
 
 <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const openButtons = document.querySelectorAll('[data-modal-open]');
+    const closeButtons = document.querySelectorAll('[data-modal-close]');
+    const researchVideo = document.getElementById('researchVideo');
+    const copyBtn = document.getElementById('copyBtn');
+    const navBurger = document.getElementById('navBurger');
+    const navLinks = document.getElementById('navLinks');
 
-const openButtons=document.querySelectorAll('[data-modal-open]')
-const closeButtons=document.querySelectorAll('[data-modal-close]')
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      if (!modal) return;
+      modal.classList.add('modal--open');
+      document.body.classList.add('no-scroll');
 
-function openModal(id){
+      if (id === 'researchModal' && researchVideo) {
+        researchVideo.play().catch(error => {
+          console.warn('Naršyklė blokavo automatinį paleidimą:', error);
+        });
+      }
+    }
 
-const modal=document.getElementById(id)
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      if (!modal) return;
+      modal.classList.remove('modal--open');
+      document.body.classList.remove('no-scroll');
+      if (id === 'researchModal' && researchVideo) {
+        researchVideo.pause();
+      }
+    }
 
-modal.classList.add('modal--open')
+    openButtons.forEach(btn => {
+      btn.addEventListener('click', () => openModal(btn.dataset.modalOpen));
+    });
 
-}
+    closeButtons.forEach(btn => {
+      btn.addEventListener('click', () => closeModal(btn.dataset.modalClose));
+    });
 
-function closeModal(id){
+    if (copyBtn) {
+      copyBtn.addEventListener('click', () => {
+        const targetId = copyBtn.dataset.target;
+        const listItems = document.querySelectorAll(`#${targetId} li`);
+        if (listItems.length > 0) {
+          const textToCopy = Array.from(listItems)
+            .map((li, index) => `${index + 1}. ${li.innerText}`)
+            .join('\n');
+          
+          navigator.clipboard.writeText(textToCopy).then(() => {
+            copyBtn.classList.add('copy-btn--done');
+            setTimeout(() => {
+              copyBtn.classList.remove('copy-btn--done');
+            }, 2500);
+          }).catch(err => {
+            console.error('Nepavyko nukopijuoti teksto:', err);
+          });
+        }
+      });
+    }
 
-const modal=document.getElementById(id)
-
-modal.classList.remove('modal--open')
-
-}
-
-openButtons.forEach(btn=>{
-
-btn.addEventListener('click',()=>openModal(btn.dataset.modalOpen))
-
-})
-
-closeButtons.forEach(btn=>{
-
-btn.addEventListener('click',()=>closeModal(btn.dataset.modalClose))
-
-})
-
+    if (navBurger && navLinks) {
+      navBurger.addEventListener('click', () => {
+        navLinks.classList.toggle('nav__links--open');
+      });
+      navLinks.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+          navLinks.classList.remove('nav__links--open');
+        }
+      });
+    }
+  });
 </script>
 
-
 </body>
-
 </html>
