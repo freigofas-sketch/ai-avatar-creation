@@ -27,7 +27,7 @@ body {
 
 .no-scroll { overflow: hidden; }
 
-/* NAVIGACIJA - Užtikriname, kad nuorodos nebūtų violetinės */
+/* NAVIGACIJA */
 .nav {
   position: sticky;
   top: 0;
@@ -58,9 +58,7 @@ body {
   gap: 18px;
 }
 
-/* Nuorodų spalvų valdymas (prevencija nuo violetinės) */
-.nav__link, 
-.nav__link:visited {
+.nav__link, .nav__link:visited {
   color: rgba(255, 255, 255, 0.78) !important;
   text-decoration: none;
   font-size: 14px;
@@ -69,30 +67,6 @@ body {
 
 .nav__link:hover {
   color: var(--accent) !important;
-}
-
-.nav__burger {
-  display: none;
-  border: 1px solid rgba(255,255,255,0.14);
-  background: rgba(255,255,255,0.06);
-  color: var(--text);
-  border-radius: 12px;
-  padding: 8px 10px;
-  cursor: pointer;
-}
-
-@media (max-width: 820px) {
-  .nav__burger { display: inline-flex; }
-  .nav__links {
-    position: absolute;
-    left: 0; right: 0; top: 56px;
-    display: none;
-    flex-direction: column;
-    padding: 20px;
-    background: rgba(10,14,20,0.98);
-    border-bottom: 1px solid var(--border);
-  }
-  .nav__links--open { display: flex; }
 }
 
 /* PAGRINDINIS TURINYS */
@@ -110,7 +84,6 @@ body {
 .hero p {
   color: var(--muted);
   line-height: 1.55;
-  font-size: 18px;
 }
 
 .section { margin-top: 40px; }
@@ -129,24 +102,40 @@ body {
   box-shadow: var(--shadow);
 }
 
-.card--tight { padding: 14px; }
+/* METODIKOS SEKCIJOS STILIUS - PATRAUKLESNIS IŠPILDYMAS */
+.methodology-card {
+  border-left: 4px solid var(--accent);
+  background: linear-gradient(90deg, rgba(83,214,255,0.08) 0%, transparent 100%);
+  line-height: 1.7;
+}
 
-/* METODIKOS SĄRAŠAS */
+.highlight-text {
+  font-size: 18px;
+  color: var(--text);
+  margin-bottom: 15px;
+}
+
 .method-list {
+  list-style: none;
+  padding-left: 10px;
   margin: 20px 0;
-  padding-left: 20px;
 }
 
 .method-list li {
   margin-bottom: 12px;
-  line-height: 1.6;
+  display: flex;
+  gap: 12px;
 }
 
-.method-list strong {
+.method-list li::before {
+  content: "→";
   color: var(--accent);
+  font-weight: bold;
 }
 
 /* MEDIJA */
+.card--tight { padding: 12px; }
+
 .media-img {
   width: 100%;
   border-radius: 14px;
@@ -213,8 +202,8 @@ body {
 }
 
 .modal__close {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: none;
+  border: 1px solid rgba(255,255,255,0.2);
   color: white;
   padding: 4px 12px;
   border-radius: 8px;
@@ -224,7 +213,7 @@ body {
 .video--modal {
   width: 100%;
   height: auto;
-  max-height: 75vh;
+  max-height: 80vh;
   display: block;
 }
 
@@ -245,9 +234,9 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 40px;
+  font-size: 50px;
   color: white;
-  text-shadow: 0 0 20px rgba(0,0,0,0.5);
+  opacity: 0.8;
 }
 
 .copy-btn {
@@ -255,21 +244,12 @@ body {
   border: 1px solid var(--accent);
   background: rgba(83,214,255,0.1);
   color: white;
-  padding: 12px 20px;
-  border-radius: 12px;
+  padding: 10px 18px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: all 0.2s;
 }
-
-.copy-btn:hover {
-  background: rgba(83,214,255,0.2);
-}
-
-.copy-btn__done { display: none; }
-.copy-btn--done .copy-btn__done { display: inline; }
-.copy-btn--done .copy-btn__label { display: none; }
 
 .process li {
-  margin-bottom: 12px;
-  line-height: 1.5;
+  margin-bottom: 10px;
+  color: var(--muted);
 }

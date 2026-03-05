@@ -12,12 +12,10 @@
 <nav class="nav">
   <div class="nav__inner">
     <a class="nav__brand" href="#top">GeneaLumen</a>
-    <button id="navBurger" class="nav__burger" aria-label="Atidaryti meniu">☰</button>
-    <div id="navLinks" class="nav__links">
-      <a href="#metodika" class="nav__link">Metodika</a>
+    <div class="nav__links">
       <a href="#avatar" class="nav__link">Avataras</a>
       <a href="#heygen" class="nav__link">Video</a>
-      <a href="#research" class="nav__link">Tyrimas</a>
+      <a href="#metodika" class="nav__link">Tyrimas</a>
       <a href="#process" class="nav__link">Procesas</a>
     </div>
   </div>
@@ -26,26 +24,9 @@
 <main class="main" id="top">
 
   <header class="hero">
-    <h1>Giminės istorijos tyrimas ir AI vizualizacija</h1>
-    <p>Projektas demonstruoja, kaip dirbtinio intelekto įrankiai ir sisteminis požiūris leidžia naujai įprasminti šeimos praeitį.</p>
+    <h1>Kalbantis avataras: nuo nuotraukos iki video</h1>
+    <p>Šis projektas parodo, kaip dirbtinio intelekto įrankiai gali būti naudojami kuriant pasakojimą apie giminės istoriją.</p>
   </header>
-
-  <section id="metodika" class="section">
-    <h2>Giminės tyrimo linija su DI metodika</h2>
-    <div class="card">
-      <p>Naudodamas dirbtinio intelekto įrankius ir struktūruotą tyrimo metodiką, per tris mėnesius atkūriau savo giminės liniją net <strong>375 metų atgal</strong> – su realiais dokumentais ir patikrintais įrodymais.</p>
-      
-      <p>Be technologijų tai būtų beveik neįmanoma dėl dokumentų kalbų įvairovės ir sudėtingo archajiško rašto. Efektyviam tyrimui užtikrinti buvo sukurta metodika, apimanti tris esminius etapus:</p>
-      
-      <ul class="method-list">
-        <li><strong>Dokumentų transkripcija:</strong> Operatyvus tekstų skaitmeninimas naudojant DI modelius.</li>
-        <li><strong>Struktūruoti DI promptai:</strong> Tikslinis informacijos filtravimas ir duomenų sąsajų paieška.</li>
-        <li><strong>Sisteminė įrodymų analizė:</strong> Kritinis vertinimas ir hipotezių formulavimas remiantis šaltiniais.</li>
-      </ul>
-
-      <p>Šis metodas leido visą tyrimą atlikti per <strong>neįtikėtinai trumpą laiką</strong>, išlaikant aukščiausią istorinį tikslumą.</p>
-    </div>
-  </section>
 
   <div class="creation-grid">
     <div class="creation-grid__assets">
@@ -80,10 +61,25 @@
     </div>
   </div>
 
+  <section id="metodika" class="section">
+    <h2>Giminės tyrimo linija ir DI metodika</h2>
+    <div class="card methodology-card">
+      <p class="highlight-text">
+        Naudodamas dirbtinio intelekto įrankius ir struktūruotą tyrimo metodiką, per tris mėnesius atkūriau savo giminės liniją net <strong>375 metų atgal</strong>.
+      </p>
+      <p>Siekdamas neįtikėtinai trumpo tyrimo laiko, sukūriau sistemą, kurią sudaro trys esminiai DI panaudojimo etapai:</p>
+      <ul class="method-list">
+        <li><strong>Transkripcija:</strong> Operatyvus archajiškų tekstų skaitmeninimas naudojant DI modelius.</li>
+        <li><strong>Promptai:</strong> Tikslinis informacijos filtravimas ir sąsajų tarp išbarstytų duomenų paieška.</li>
+        <li><strong>Analizė:</strong> Hipotezių tikrinimas remiantis autentiškais istoriniais šaltiniais.</li>
+      </ul>
+    </div>
+  </section>
+
   <section id="research" class="section">
-    <h2>4) Mano giminės tyrimo video</h2>
+    <h2>4) Tyrimo vizualizacija</h2>
     <div class="card card--tight">
-      <button class="preview" data-modal-open="researchModal" aria-label="Atidaryti tyrimo vaizdo įrašą">
+      <button class="preview" data-modal-open="researchModal">
         <div class="preview__media">
           <video class="video video--preview" muted preload="metadata">
             <source src="assets/video/genealogy-research.mp4" type="video/mp4">
@@ -95,30 +91,27 @@
   </section>
 
   <section id="process" class="section">
-    <h2>Techninis procesas</h2>
+    <h2>Procesas</h2>
     <div class="card">
       <ol id="processText" class="process">
-        <li>Avataro nuotrauka sugeneruota su <strong>Gemini</strong> modeliu.</li>
-        <li>Tyrimo metodikos tekstas paruoštas naudojant kalbos modelių analizę.</li>
-        <li>Balsas sugeneruotas per <strong>ElevenLabs</strong> platformą.</li>
-        <li>Video su lūpų sinchronizacija sukurtas <strong>HeyGen</strong> įrankiu.</li>
-        <li>Svetainė integruota <strong>Cursor</strong> aplinkoje ir paviešinta per <strong>GitHub Pages</strong>.</li>
+        <li>Avataro nuotrauka sugeneruota naudojant Gemini modelį.</li>
+        <li>Tekstas paruoštas su kalbos modelio pagalba.</li>
+        <li>Balsas sugeneruotas naudojant ElevenLabs.</li>
+        <li>Kalbantis avataras sukurtas HeyGen platformoje.</li>
+        <li>Visa medžiaga integruota į HTML puslapį ir publikuota GitHub Pages.</li>
       </ol>
-      <button id="copyBtn" class="copy-btn" data-target="processText">
-        <span class="copy-btn__label">Kopijuoti procesą</span>
-        <span class="copy-btn__done">Nukopijuota!</span>
-      </button>
+      <button id="copyBtn" class="copy-btn" data-target="processText">Kopijuoti procesą</button>
     </div>
   </section>
 
 </main>
 
-<div id="researchModal" class="modal" role="dialog" aria-modal="true">
+<div id="researchModal" class="modal">
   <div class="modal__backdrop" data-modal-close="researchModal"></div>
   <div class="modal__panel">
     <div class="modal__header">
       <div class="modal__title">Giminės tyrimo video</div>
-      <button class="modal__close" data-modal-close="researchModal" aria-label="Uždaryti langą">✕</button>
+      <button class="modal__close" data-modal-close="researchModal">✕</button>
     </div>
     <div class="modal__body">
       <video id="researchVideo" class="video video--modal" controls preload="metadata">
@@ -133,55 +126,24 @@
     const openButtons = document.querySelectorAll('[data-modal-open]');
     const closeButtons = document.querySelectorAll('[data-modal-close]');
     const researchVideo = document.getElementById('researchVideo');
-    const copyBtn = document.getElementById('copyBtn');
-    const navBurger = document.getElementById('navBurger');
-    const navLinks = document.getElementById('navLinks');
-
-    function openModal(id) {
-      const modal = document.getElementById(id);
-      if (!modal) return;
-      modal.classList.add('modal--open');
-      document.body.classList.add('no-scroll');
-      if (id === 'researchModal' && researchVideo) {
-        researchVideo.play().catch(() => {});
-      }
-    }
-
-    function closeModal(id) {
-      const modal = document.getElementById(id);
-      if (!modal) return;
-      modal.classList.remove('modal--open');
-      document.body.classList.remove('no-scroll');
-      if (id === 'researchModal' && researchVideo) {
-        researchVideo.pause();
-      }
-    }
 
     openButtons.forEach(btn => {
-      btn.addEventListener('click', () => openModal(btn.dataset.modalOpen));
+      btn.addEventListener('click', () => {
+        const modal = document.getElementById(btn.dataset.modalOpen);
+        modal.classList.add('modal--open');
+        document.body.classList.add('no-scroll');
+        if (researchVideo) researchVideo.play();
+      });
     });
 
     closeButtons.forEach(btn => {
-      btn.addEventListener('click', () => closeModal(btn.dataset.modalClose));
+      btn.addEventListener('click', () => {
+        const modal = document.getElementById(btn.dataset.modalClose);
+        modal.classList.remove('modal--open');
+        document.body.classList.remove('no-scroll');
+        if (researchVideo) researchVideo.pause();
+      });
     });
-
-    if (copyBtn) {
-      copyBtn.addEventListener('click', () => {
-        const listItems = document.querySelectorAll(`#${copyBtn.dataset.target} li`);
-        const textToCopy = Array.from(listItems).map((li, i) => `${i + 1}. ${li.innerText}`).join('\n');
-        navigator.clipboard.writeText(textToCopy).then(() => {
-          copyBtn.classList.add('copy-btn--done');
-          setTimeout(() => copyBtn.classList.remove('copy-btn--done'), 2500);
-        });
-      });
-    }
-
-    if (navBurger && navLinks) {
-      navBurger.addEventListener('click', () => navLinks.classList.toggle('nav__links--open'));
-      navLinks.addEventListener('click', (e) => {
-        if (e.target.tagName === 'A') navLinks.classList.remove('nav__links--open');
-      });
-    }
   });
 </script>
 
