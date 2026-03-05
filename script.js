@@ -1,7 +1,1 @@
-function openVideo(){
-  document.getElementById("videoModal").classList.add("active")
-}
-
-function closeVideo(){
-  document.getElementById("videoModal").classList.remove("active")
-}
+// Intentionally empty. JS is inline in index.html.
