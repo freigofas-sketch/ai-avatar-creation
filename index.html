@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="lt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GeneaLumen — Kalbantis AI avataras</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <nav id="nav" class="nav">
+    <div class="nav__inner">
+      <a class="nav__brand" href="#top">GeneaLumen</a>
+
+      <button id="navBurger" class="nav__burger" aria-expanded="false" aria-label="Atidaryti meniu">
+        ☰
+      </button>
+
+      <div id="navLinks" class="nav__links">
+        <a class="nav__link" href="#avatar">Avataras</a>
+        <a class="nav__link" href="#audio">Audio</a>
+        <a class="nav__link" href="#video">Video</a>
+        <a class="nav__link" href="#process">Procesas</a>
+        <a class="nav__link" href="#faq">DUK</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top" class="main">
+
+    <header class="hero reveal">
+      <h1>Kalbantis avataras: nuo nuotraukos iki video</h1>
+      <p>
+        Per tris mėnesius atkūriau savo giminės istoriją 375 metus atgal, remdamasis archyviniais dokumentais ir DI įrankiais.
+        Šiame puslapyje parodau, kaip buvo sukurtas kalbantis avataras.
+      </p>
+    </header>
+
+    <section id="avatar" class="section reveal">
+      <h2>1) Avataro nuotrauka (Gemini / ChatGPT)</h2>
+      <div class="card">
+        <img class="avatar-img" src="assets/img/avatar.png" alt="AI avataras genealogijos temai" />
+      </div>
+    </section>
+
+    <section id="audio" class="section reveal">
+      <h2>2) Balsas (ElevenLabs)</h2>
+      <div class="card">
+        <audio controls preload="metadata" class="player">
+          <source src="assets/audio/avatar.mp3" type="audio/mpeg" />
+          Jūsų naršyklė nepalaiko audio.
+        </audio>
+      </div>
+    </section>
+
+    <section id="video" class="section reveal">
+      <h2>3) Kalbantis avataras (HeyGen)</h2>
+
+      <div class="video-card card">
+        <!-- Overlay (tavo JS jį slėps kai paspausi play) -->
+        <div class="video-card__overlay">
+          <div class="video-card__overlay-inner">
+            <strong>Paspausk Play</strong>
+            <span>Video su HeyGen kalbančiu avataru</span>
+          </div>
+        </div>
+
+        <video class="video-card__player" controls preload="metadata">
+          <source src="assets/video/avatar.mp4" type="video/mp4" />
+          Jūsų naršyklė nepalaiko video.
+        </video>
+      </div>
+
+      <!-- Jei vietoj mp4 naudosite HeyGen share link – čia galima pakeisti į iframe -->
+    </section>
+
+    <section id="process" class="section reveal">
+      <h2>Procesas: nuotrauka → audio → video</h2>
+
+      <div class="card">
+        <ol id="processText">
+          <li>Avataro nuotrauka sugeneruota (Gemini / ChatGPT).</li>
+          <li>Tekstas paruoštas (ChatGPT).</li>
+          <li>Balsas sugeneruotas (ElevenLabs) ir atsisiųstas kaip MP3.</li>
+          <li>HeyGen sukurtas video su subtitrais, panaudojant MP3.</li>
+          <li>Viskas sudėta į HTML/CSS/JS svetainę ir publikuota per GitHub Pages.</li>
+        </ol>
+
+        <button id="copyBtn" class="copy-btn" data-target="processText" aria-label="Nukopijuoti tekstą į iškarpinę">
+          <span class="copy-btn__icon" aria-hidden="true">⎘</span>
+          <span class="copy-btn__label">Kopijuoti proceso tekstą</span>
+          <span class="copy-btn__done" aria-hidden="true">✓ Nukopijuota</span>
+        </button>
+      </div>
+    </section>
+
+    <section id="faq" class="section reveal">
+      <h2>DUK</h2>
+
+      <div class="card">
+        <details class="faq-item">
+          <summary class="faq-item__q">Kokius DI įrankius naudojai?</summary>
+          <div class="faq-item__a">
+            Gemini (vaizdui), ChatGPT (tekstui), ElevenLabs (balsui), HeyGen (video).
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-item__q">Kodėl šis pavyzdys naudingas?</summary>
+          <div class="faq-item__a">
+            Jis parodo, kaip sudėtingą temą galima pristatyti interaktyviai ir aiškiai.
+          </div>
+        </details>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
