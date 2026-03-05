@@ -14,10 +14,10 @@
     <a class="nav__brand" href="#top">GeneaLumen</a>
     <button id="navBurger" class="nav__burger" aria-label="Atidaryti meniu">☰</button>
     <div id="navLinks" class="nav__links">
+      <a href="#intro" class="nav__link">Metodika</a>
       <a href="#avatar" class="nav__link">Avataras</a>
-      <a href="#audio" class="nav__link">Audio</a>
-      <a href="#heygen" class="nav__link">HeyGen video</a>
-      <a href="#research" class="nav__link">Tyrimo video</a>
+      <a href="#heygen" class="nav__link">Video</a>
+      <a href="#research" class="nav__link">Tyrimas</a>
       <a href="#process" class="nav__link">Procesas</a>
     </div>
   </div>
@@ -27,15 +27,24 @@
 
   <header class="hero">
     <h1>Kalbantis avataras: nuo nuotraukos iki video</h1>
-    <p>Šis projektas parodo, kaip dirbtinio intelekto įrankiai gali būti naudojami kuriant pasakojimą apie giminės istoriją.</p>
+    <p>Projektas demonstruoja, kaip dirbtinis intelektas prikelia giminės istoriją naujam gyvenimui, transformuojant archyvinius duomenis į interaktyvų pasakojimą.</p>
   </header>
+
+  <section id="intro" class="section">
+    <h2>Giminės tyrimo metodika ir DI galia</h2>
+    <div class="card intro-card">
+      <p>Naudodamas dirbtinio intelekto įrankius ir struktūruotą tyrimo metodiką, per tris mėnesius atkūriau savo giminės liniją net <strong>375 metų atgal</strong> – su realiais dokumentais ir patikrintais įrodymais.</p>
+      <p>Be technologijų tai būtų beveik neįmanoma. Senieji dokumentai parašyti skirtingomis kalbomis, jų raštas sudėtingas, o informacija išsibaršiusi archyvuose. Sukurtas metodas sujungia dokumentų transkripciją, struktūruotus DI promptus ir sisteminę įrodymų analizę.</p>
+      <p>Dirbtinis intelektas padeda greitai perskaityti senus tekstus ir formuluoti hipotezes, tačiau galutiniai sprendimai visada remiasi tikrais istoriniais šaltiniais. Žemiau matomas avataras yra šio technologinio proveržio „balsas“.</p>
+    </div>
+  </section>
 
   <div class="creation-grid">
     <div class="creation-grid__assets">
       <section id="avatar" class="section">
         <h2>1) Avataro nuotrauka</h2>
         <div class="card">
-          <img src="assets/img/avatar.png" alt="Sugeneruota avataro nuotrauka" class="media-img">
+          <img src="assets/img/avatar.png" alt="DI sugeneruotas avataras" class="media-img">
         </div>
       </section>
 
@@ -64,9 +73,9 @@
   </div>
 
   <section id="research" class="section">
-    <h2>4) Mano giminės tyrimo video</h2>
+    <h2>4) Tyrimo vizualizacija</h2>
     <div class="card card--tight">
-      <button class="preview" data-modal-open="researchModal" aria-label="Atidaryti tyrimo vaizdo įrašą">
+      <button class="preview" data-modal-open="researchModal">
         <div class="preview__media">
           <video class="video video--preview" muted preload="metadata">
             <source src="assets/video/genealogy-research.mp4" type="video/mp4">
@@ -78,14 +87,14 @@
   </section>
 
   <section id="process" class="section">
-    <h2>Procesas</h2>
+    <h2>Techninis procesas</h2>
     <div class="card">
       <ol id="processText" class="process">
-        <li>Avataro nuotrauka sugeneruota naudojant dirbtinio intelekto vaizdų generavimo modelį.</li>
-        <li>Tekstas paruoštas su kalbos modelio pagalba.</li>
-        <li>Balsas sugeneruotas naudojant ElevenLabs.</li>
-        <li>Kalbantis avataras sukurtas HeyGen platformoje.</li>
-        <li>Visa medžiaga integruota į HTML puslapį ir publikuota GitHub Pages.</li>
+        <li>Avataro nuotrauka sugeneruota pagal giminės tyrėjo profilį (Midjourney/DALL-E).</li>
+        <li>Metodinis tekstas paruoštas naudojant LLM modelius analizei.</li>
+        <li>Balsas sugeneruotas per ElevenLabs, siekiant maksimalaus natūralumo.</li>
+        <li>Veido mimikos ir lūpų sinchronizacija atlikta HeyGen platformoje.</li>
+        <li>Svetainė suprogramuota Cursor aplinkoje ir publikuota GitHub Pages.</li>
       </ol>
       <button id="copyBtn" class="copy-btn" data-target="processText">
         <span class="copy-btn__label">Kopijuoti procesą</span>
@@ -96,12 +105,12 @@
 
 </main>
 
-<div id="researchModal" class="modal" role="dialog" aria-modal="true">
+<div id="researchModal" class="modal">
   <div class="modal__backdrop" data-modal-close="researchModal"></div>
   <div class="modal__panel">
     <div class="modal__header">
       <div class="modal__title">Giminės tyrimo video</div>
-      <button class="modal__close" data-modal-close="researchModal" aria-label="Uždaryti langą">✕</button>
+      <button class="modal__close" data-modal-close="researchModal">✕</button>
     </div>
     <div class="modal__body">
       <video id="researchVideo" class="video video--modal" controls preload="metadata">
@@ -117,19 +126,14 @@
     const closeButtons = document.querySelectorAll('[data-modal-close]');
     const researchVideo = document.getElementById('researchVideo');
     const copyBtn = document.getElementById('copyBtn');
-    const navBurger = document.getElementById('navBurger');
-    const navLinks = document.getElementById('navLinks');
 
     function openModal(id) {
       const modal = document.getElementById(id);
       if (!modal) return;
       modal.classList.add('modal--open');
       document.body.classList.add('no-scroll');
-
       if (id === 'researchModal' && researchVideo) {
-        researchVideo.play().catch(error => {
-          console.warn('Naršyklė blokavo automatinį paleidimą:', error);
-        });
+        researchVideo.play().catch(() => {});
       }
     }
 
@@ -143,43 +147,17 @@
       }
     }
 
-    openButtons.forEach(btn => {
-      btn.addEventListener('click', () => openModal(btn.dataset.modalOpen));
-    });
-
-    closeButtons.forEach(btn => {
-      btn.addEventListener('click', () => closeModal(btn.dataset.modalClose));
-    });
+    openButtons.forEach(btn => btn.addEventListener('click', () => openModal(btn.dataset.modalOpen)));
+    closeButtons.forEach(btn => btn.addEventListener('click', () => closeModal(btn.dataset.modalClose)));
 
     if (copyBtn) {
       copyBtn.addEventListener('click', () => {
-        const targetId = copyBtn.dataset.target;
-        const listItems = document.querySelectorAll(`#${targetId} li`);
-        if (listItems.length > 0) {
-          const textToCopy = Array.from(listItems)
-            .map((li, index) => `${index + 1}. ${li.innerText}`)
-            .join('\n');
-          
-          navigator.clipboard.writeText(textToCopy).then(() => {
-            copyBtn.classList.add('copy-btn--done');
-            setTimeout(() => {
-              copyBtn.classList.remove('copy-btn--done');
-            }, 2500);
-          }).catch(err => {
-            console.error('Nepavyko nukopijuoti teksto:', err);
-          });
-        }
-      });
-    }
-
-    if (navBurger && navLinks) {
-      navBurger.addEventListener('click', () => {
-        navLinks.classList.toggle('nav__links--open');
-      });
-      navLinks.addEventListener('click', (e) => {
-        if (e.target.tagName === 'A') {
-          navLinks.classList.remove('nav__links--open');
-        }
+        const listItems = document.querySelectorAll(`#${copyBtn.dataset.target} li`);
+        const text = Array.from(listItems).map((li, i) => `${i + 1}. ${li.innerText}`).join('\n');
+        navigator.clipboard.writeText(text).then(() => {
+          copyBtn.classList.add('copy-btn--done');
+          setTimeout(() => copyBtn.classList.remove('copy-btn--done'), 2000);
+        });
       });
     }
   });
