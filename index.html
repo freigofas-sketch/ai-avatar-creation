@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <nav id="nav" class="nav">
+  <nav class="nav">
     <div class="nav__inner">
       <a class="nav__brand" href="#top">GeneaLumen</a>
 
@@ -31,8 +31,7 @@
     <header class="hero">
       <h1>Kalbantis avataras: nuo nuotraukos iki video</h1>
       <p>
-        Per tris mėnesius atkūriau savo giminės istoriją 375 metus atgal, remdamasis archyviniais dokumentais ir DI įrankiais.
-        Šiame puslapyje parodau, kaip buvo sukurtas kalbantis avataras.
+        Šiame puslapyje parodau visą procesą: avataro nuotrauka → įgarsinimas → kalbantis video → (papildomai) mano giminės tyrimo video.
       </p>
     </header>
 
@@ -56,20 +55,12 @@
     <section id="heygen" class="section">
       <h2>3) Kalbantis avataras (HeyGen)</h2>
 
-      <div class="card">
-        <div class="media-block">
-          <div class="media-hint">Video su HeyGen kalbančiu avataru</div>
-
-          <div class="video-wrap video-wrap--avatar">
-            <video class="video video--avatar" controls preload="metadata" playsinline>
-              <source src="assets/video/avatar.mp4" type="video/mp4" />
-              Jūsų naršyklė nepalaiko video.
-            </video>
-          </div>
-
-          <p class="note">
-            Pastaba: HeyGen video (dažnai 9:16) čia apribotas „standartiniu“ dydžiu, kad puslapyje neatrodytų per didelis.
-          </p>
+      <div class="card card--tight">
+        <div class="phone-frame">
+          <video class="video video--phone" controls preload="metadata" playsinline>
+            <source src="assets/video/avatar.mp4" type="video/mp4" />
+            Jūsų naršyklė nepalaiko video.
+          </video>
         </div>
       </div>
     </section>
@@ -77,36 +68,28 @@
     <section id="research" class="section">
       <h2>4) Mano giminės tyrimo video (NotebookLM / kitas)</h2>
 
-      <div class="card">
-        <div class="media-block">
-          <div class="media-hint">Peržiūra (paspausk – atsidarys dideliame lange)</div>
+      <div class="card card--tight">
+        <button
+          type="button"
+          class="preview"
+          data-modal-open="researchModal"
+          aria-haspopup="dialog"
+          aria-controls="researchModal"
+        >
+          <span class="preview__top">
+            <span class="preview__title">Atidaryti dideliame lange</span>
+            <span class="preview__sub">Paspausk peržiūrą</span>
+          </span>
 
-          <!-- SVARBU:
-               Pakeisk RESEARCH_VIDEO_FILE į tikslų failo pavadinimą repo:
-               assets/video/RESEARCH_VIDEO_FILE
-               Pvz: genealogy-research.mp4
-          -->
-          <button
-            type="button"
-            class="preview"
-            data-modal-open="researchModal"
-            aria-haspopup="dialog"
-            aria-controls="researchModal"
-          >
-            <span class="preview__badge">Žiūrėti dideliame lange</span>
+          <div class="preview__media">
+            <video class="video video--preview" preload="metadata" muted playsinline>
+              <source src="assets/video/genealogy-research.mp4" type="video/mp4" />
+              Jūsų naršyklė nepalaiko video.
+            </video>
 
-            <div class="video-wrap video-wrap--preview">
-              <video class="video video--preview" preload="metadata" muted playsinline>
-                <source src="assets/video/genealogy-research.mp4" type="video/mp4" />
-                Jūsų naršyklė nepalaiko video.
-              </video>
-            </div>
-          </button>
-
-          <p class="note">
-            Jei failas per didelis GitHub (naršyklėje ~25 MB), mažink (HandBrake) arba kelk į YouTube/Drive ir čia naudok nuorodą.
-          </p>
-        </div>
+            <span class="preview__play" aria-hidden="true">▶</span>
+          </div>
+        </button>
       </div>
     </section>
 
@@ -114,7 +97,7 @@
       <h2>Procesas: nuotrauka → audio → video</h2>
 
       <div class="card">
-        <ol id="processText">
+        <ol id="processText" class="process">
           <li>Avataro nuotrauka sugeneruota (Gemini / ChatGPT).</li>
           <li>Tekstas paruoštas (ChatGPT).</li>
           <li>Balsas sugeneruotas (ElevenLabs) ir atsisiųstas kaip MP3.</li>
@@ -137,14 +120,14 @@
         <details class="faq-item">
           <summary class="faq-item__q">Kokius DI įrankius naudojai?</summary>
           <div class="faq-item__a">
-            Gemini (vaizdui), ChatGPT (tekstui), ElevenLabs (balsui), HeyGen (video).
+            Gemini (vaizdui), ChatGPT (tekstui), ElevenLabs (balsui), HeyGen (video). Papildomas tyrimo video – iš NotebookLM arba kito įrankio.
           </div>
         </details>
 
         <details class="faq-item">
           <summary class="faq-item__q">Kodėl šis pavyzdys naudingas?</summary>
           <div class="faq-item__a">
-            Jis parodo, kaip sudėtingą temą galima pristatyti aiškiai: nuo turinio kūrimo iki publikavimo.
+            Tai aiški demonstracija, kaip DI turinys sujungiamas į vieną veikiančią svetainę ir publikuojamas per GitHub Pages.
           </div>
         </details>
       </div>
@@ -162,13 +145,12 @@
       </div>
 
       <div class="modal__body">
-        <div class="video-wrap video-wrap--modal">
+        <div class="modal__video">
           <video id="researchVideo" class="video video--modal" controls preload="metadata" playsinline>
             <source src="assets/video/genealogy-research.mp4" type="video/mp4" />
             Jūsų naršyklė nepalaiko video.
           </video>
         </div>
-        <p class="note note--modal">Uždarymas: Esc / paspausk foną / X.</p>
       </div>
     </div>
   </div>
@@ -177,6 +159,7 @@
     // Burger meniu
     const navBurger = document.getElementById('navBurger');
     const navLinks = document.getElementById('navLinks');
+
     if (navBurger && navLinks) {
       navBurger.addEventListener('click', () => {
         const expanded = navBurger.getAttribute('aria-expanded') === 'true';
@@ -205,7 +188,7 @@
         try {
           await navigator.clipboard.writeText(text);
           copyBtn.classList.add('copy-btn--done');
-          setTimeout(() => copyBtn.classList.remove('copy-btn--done'), 1500);
+          setTimeout(() => copyBtn.classList.remove('copy-btn--done'), 1400);
         } catch {
           const ta = document.createElement('textarea');
           ta.value = text;
@@ -214,7 +197,7 @@
           document.execCommand('copy');
           document.body.removeChild(ta);
           copyBtn.classList.add('copy-btn--done');
-          setTimeout(() => copyBtn.classList.remove('copy-btn--done'), 1500);
+          setTimeout(() => copyBtn.classList.remove('copy-btn--done'), 1400);
         }
       });
     }
@@ -228,10 +211,9 @@
       if (!modal) return;
       modal.classList.add('modal--open');
       modal.setAttribute('aria-hidden', 'false');
-
       document.body.classList.add('no-scroll');
 
-      // sustabdyk preview (jei kažkur groja)
+      // sustabdyk preview
       document.querySelectorAll('video.video--preview').forEach(v => v.pause());
     }
 
@@ -241,7 +223,6 @@
       modal.classList.remove('modal--open');
       modal.setAttribute('aria-hidden', 'true');
 
-      // pauzė modal video
       const vid = modal.querySelector('video');
       if (vid) vid.pause();
 
