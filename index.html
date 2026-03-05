@@ -15,7 +15,8 @@
     <div class="nav__links">
       <a href="#avatar" class="nav__link">Avataras</a>
       <a href="#heygen" class="nav__link">Video</a>
-      <a href="#metodika" class="nav__link">Tyrimas</a>
+      <a href="#metodika" class="nav__link">Metodika</a>
+      <a href="#research" class="nav__link">Tyrimas</a>
       <a href="#process" class="nav__link">Procesas</a>
     </div>
   </div>
@@ -25,7 +26,7 @@
 
   <header class="hero">
     <h1>Kalbantis avataras: nuo nuotraukos iki video</h1>
-    <p>Šis projektas parodo, kaip dirbtinio intelekto įrankiai gali būti naudojami kuriant pasakojimą apie giminės istoriją.</p>
+    <p>Šis projektas demonstruoja, kaip dirbtinis intelektas prikelia giminės istoriją naujam gyvenimui.</p>
   </header>
 
   <div class="creation-grid">
@@ -62,22 +63,23 @@
   </div>
 
   <section id="metodika" class="section">
-    <h2>Giminės tyrimo linija ir DI metodika</h2>
+    <h2>Giminės tyrimo linija su DI metodika</h2>
     <div class="card methodology-card">
       <p class="highlight-text">
         Naudodamas dirbtinio intelekto įrankius ir struktūruotą tyrimo metodiką, per tris mėnesius atkūriau savo giminės liniją net <strong>375 metų atgal</strong>.
       </p>
-      <p>Siekdamas neįtikėtinai trumpo tyrimo laiko, sukūriau sistemą, kurią sudaro trys esminiai DI panaudojimo etapai:</p>
+      <p>Siekdamas efektyvumo, sukūriau sistemą, kurią sudaro trys pagrindiniai etapai:</p>
       <ul class="method-list">
         <li><strong>Transkripcija:</strong> Operatyvus archajiškų tekstų skaitmeninimas naudojant DI modelius.</li>
-        <li><strong>Promptai:</strong> Tikslinis informacijos filtravimas ir sąsajų tarp išbarstytų duomenų paieška.</li>
+        <li><strong>Promptai:</strong> Tikslinis informacijos filtravimas ir duomenų sąsajų paieška.</li>
         <li><strong>Analizė:</strong> Hipotezių tikrinimas remiantis autentiškais istoriniais šaltiniais.</li>
       </ul>
+      <p>Šis procesas leido tyrimą atlikti per <strong>neįtikėtinai trumpą laiką</strong>, kartu išlaikant istorinį tikslumą.</p>
     </div>
   </section>
 
   <section id="research" class="section">
-    <h2>4) Tyrimo vizualizacija</h2>
+    <h2>4) Mano giminės tyrimo video</h2>
     <div class="card card--tight">
       <button class="preview" data-modal-open="researchModal">
         <div class="preview__media">
@@ -91,14 +93,14 @@
   </section>
 
   <section id="process" class="section">
-    <h2>Procesas</h2>
+    <h2>Techninis procesas</h2>
     <div class="card">
       <ol id="processText" class="process">
-        <li>Avataro nuotrauka sugeneruota naudojant Gemini modelį.</li>
-        <li>Tekstas paruoštas su kalbos modelio pagalba.</li>
-        <li>Balsas sugeneruotas naudojant ElevenLabs.</li>
-        <li>Kalbantis avataras sukurtas HeyGen platformoje.</li>
-        <li>Visa medžiaga integruota į HTML puslapį ir publikuota GitHub Pages.</li>
+        <li>Avataro nuotrauka sugeneruota su <strong>Gemini</strong> modeliu.</li>
+        <li>Tekstas paruoštas naudojant kalbos modelių analizę.</li>
+        <li>Balsas sugeneruotas per <strong>ElevenLabs</strong> platformą.</li>
+        <li>Video su lūpų sinchronizacija sukurtas <strong>HeyGen</strong> įrankiu.</li>
+        <li>Svetainė publikuota per <strong>GitHub Pages</strong>.</li>
       </ol>
       <button id="copyBtn" class="copy-btn" data-target="processText">Kopijuoti procesą</button>
     </div>
@@ -126,24 +128,26 @@
     const openButtons = document.querySelectorAll('[data-modal-open]');
     const closeButtons = document.querySelectorAll('[data-modal-close]');
     const researchVideo = document.getElementById('researchVideo');
+    const copyBtn = document.getElementById('copyBtn');
 
-    openButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const modal = document.getElementById(btn.dataset.modalOpen);
-        modal.classList.add('modal--open');
-        document.body.classList.add('no-scroll');
-        if (researchVideo) researchVideo.play();
-      });
-    });
+    openButtons.forEach(btn => btn.addEventListener('click', () => {
+      document.getElementById(btn.dataset.modalOpen).classList.add('modal--open');
+      if (researchVideo) researchVideo.play();
+    }));
 
-    closeButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const modal = document.getElementById(btn.dataset.modalClose);
-        modal.classList.remove('modal--open');
-        document.body.classList.remove('no-scroll');
-        if (researchVideo) researchVideo.pause();
+    closeButtons.forEach(btn => btn.addEventListener('click', () => {
+      document.getElementById(btn.dataset.modalClose).classList.remove('modal--open');
+      if (researchVideo) researchVideo.pause();
+    }));
+
+    if (copyBtn) {
+      copyBtn.addEventListener('click', () => {
+        const text = Array.from(document.querySelectorAll('#processText li')).map((li, i) => `${i+1}. ${li.innerText}`).join('\n');
+        navigator.clipboard.writeText(text);
+        copyBtn.innerText = "Nukopijuota!";
+        setTimeout(() => copyBtn.innerText = "Kopijuoti procesą", 2000);
       });
-    });
+    }
   });
 </script>
 

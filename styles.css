@@ -1,255 +1,69 @@
 :root {
   --bg: #0b0f14;
-  --card: rgba(255,255,255,0.06);
-  --border: rgba(255,255,255,0.12);
   --text: rgba(255,255,255,0.92);
-  --muted: rgba(255,255,255,0.70);
   --accent: #53d6ff;
   --radius: 18px;
-  --shadow: 0 16px 50px rgba(0,0,0,0.45);
   --maxw: 980px;
 }
 
 * { box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
 body {
   margin: 0;
   color: var(--text);
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background: 
-    radial-gradient(1200px 900px at 15% 10%, rgba(83,214,255,0.10), transparent 60%),
-    radial-gradient(900px 700px at 85% 20%, rgba(83,214,255,0.06), transparent 55%),
-    var(--bg);
+  font-family: system-ui, sans-serif;
+  background: radial-gradient(1200px 900px at 15% 10%, rgba(83,214,255,0.10), transparent 60%), var(--bg);
   background-attachment: fixed;
 }
 
-.no-scroll { overflow: hidden; }
-
-/* NAVIGACIJA */
+/* NAVIGACIJA - Sutvarkyta be burger meniu */
 .nav {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  position: sticky; top: 0; z-index: 20;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
   background: rgba(10,14,20,0.62);
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
+.nav__inner { max-width: var(--maxw); margin: 0 auto; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; }
+.nav__brand { color: var(--text); text-decoration: none; font-weight: 700; }
+.nav__links { display: flex; gap: 20px; }
+.nav__link, .nav__link:visited { color: rgba(255, 255, 255, 0.78) !important; text-decoration: none; font-size: 14px; transition: 0.2s; }
+.nav__link:hover { color: var(--accent) !important; }
 
-.nav__inner {
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 14px 18px;
-  display: flex;
-  align-items: center;
-}
-
-.nav__brand {
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 700;
-  margin-right: auto;
-}
-
-.nav__links {
-  display: flex;
-  gap: 18px;
-}
-
-.nav__link, .nav__link:visited {
-  color: rgba(255, 255, 255, 0.78) !important;
-  text-decoration: none;
-  font-size: 14px;
-  transition: color 0.2s ease;
-}
-
-.nav__link:hover {
-  color: var(--accent) !important;
-}
-
-/* PAGRINDINIS TURINYS */
-.main {
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 28px 18px 70px;
-}
-
-.hero h1 {
-  margin: 0 0 10px;
-  font-size: clamp(28px, 4.2vw, 42px);
-}
-
-.hero p {
-  color: var(--muted);
-  line-height: 1.55;
-}
-
-.section { margin-top: 40px; }
-
-.section h2 {
-  font-size: 22px;
-  margin-bottom: 16px;
-  color: var(--accent);
-}
-
-.card {
-  background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
-  border: 1px solid rgba(255,255,255,0.10);
-  border-radius: var(--radius);
-  padding: 24px;
-  box-shadow: var(--shadow);
-}
-
-/* METODIKOS SEKCIJOS STILIUS - PATRAUKLESNIS IŠPILDYMAS */
+/* METODIKA - Patrauklesnis dizainas */
 .methodology-card {
   border-left: 4px solid var(--accent);
   background: linear-gradient(90deg, rgba(83,214,255,0.08) 0%, transparent 100%);
-  line-height: 1.7;
+  padding: 24px;
 }
+.highlight-text { font-size: 18px; margin-bottom: 15px; }
+.method-list { list-style: none; padding-left: 0; margin: 20px 0; }
+.method-list li { margin-bottom: 12px; display: flex; gap: 10px; }
+.method-list li::before { content: "→"; color: var(--accent); font-weight: bold; }
 
-.highlight-text {
-  font-size: 18px;
-  color: var(--text);
-  margin-bottom: 15px;
-}
-
-.method-list {
-  list-style: none;
-  padding-left: 10px;
-  margin: 20px 0;
-}
-
-.method-list li {
-  margin-bottom: 12px;
-  display: flex;
-  gap: 12px;
-}
-
-.method-list li::before {
-  content: "→";
-  color: var(--accent);
-  font-weight: bold;
-}
-
-/* MEDIJA */
+/* LAYOUT */
+.main { max-width: var(--maxw); margin: 0 auto; padding: 28px 18px 70px; }
+.hero h1 { font-size: clamp(28px, 4.2vw, 42px); margin: 0 0 10px; }
+.section { margin-top: 45px; }
+.section h2 { color: var(--accent); font-size: 22px; margin-bottom: 20px; }
+.card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); padding: 20px; }
 .card--tight { padding: 12px; }
-
-.media-img {
-  width: 100%;
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,0.10);
-}
-
-.player { width: 100%; margin-top: 10px; }
-
-.phone-frame {
-  width: 100%;
-  max-width: 300px;
-  margin: 0 auto;
-  border-radius: 24px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.14);
-  aspect-ratio: 9 / 16;
-  background: #000;
-}
-
+.media-img { width: 100%; border-radius: 14px; }
+.phone-frame { width: 100%; max-width: 300px; margin: 0 auto; border-radius: 24px; overflow: hidden; border: 1px solid var(--accent); aspect-ratio: 9/16; }
 .video { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-/* TINKLELIS KOMPIUTERIUI */
+/* TINKLELIS */
 @media (min-width: 820px) {
-  .creation-grid {
-    display: grid;
-    grid-template-columns: 1fr 340px;
-    gap: 40px;
-    align-items: start;
-  }
+  .creation-grid { display: grid; grid-template-columns: 1fr 340px; gap: 40px; align-items: start; }
 }
 
-/* MODALINIS LANGAS */
-.modal {
-  position: fixed;
-  inset: 0;
-  display: none;
-  z-index: 50;
-}
-
+/* MODAL */
+.modal { position: fixed; inset: 0; display: none; z-index: 50; }
 .modal--open { display: block; }
-
-.modal__backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  backdrop-filter: blur(5px);
-}
-
-.modal__panel {
-  position: relative;
-  width: min(900px, 95%);
-  margin: 40px auto;
-  background: #0b0f14;
-  border-radius: 20px;
-  border: 1px solid var(--border);
-  overflow: hidden;
-}
-
-.modal__header {
-  display: flex;
-  justify-content: space-between;
-  padding: 16px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-.modal__close {
-  background: none;
-  border: 1px solid rgba(255,255,255,0.2);
-  color: white;
-  padding: 4px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.video--modal {
-  width: 100%;
-  height: auto;
-  max-height: 80vh;
-  display: block;
-}
+.modal__backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(5px); }
+.modal__panel { position: relative; width: min(900px, 95%); margin: 40px auto; background: #0b0f14; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); overflow: hidden; }
+.modal__header { display: flex; justify-content: space-between; padding: 16px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.modal__close { background: none; border: 1px solid rgba(255,255,255,0.2); color: white; padding: 4px 12px; border-radius: 8px; cursor: pointer; }
 
 /* MYGTUKAI */
-.preview {
-  background: none;
-  border: none;
-  padding: 0;
-  width: 100%;
-  cursor: pointer;
-  border-radius: 12px;
-  overflow: hidden;
-  position: relative;
-}
-
-.preview__play {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 50px;
-  color: white;
-  opacity: 0.8;
-}
-
-.copy-btn {
-  margin-top: 20px;
-  border: 1px solid var(--accent);
-  background: rgba(83,214,255,0.1);
-  color: white;
-  padding: 10px 18px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.process li {
-  margin-bottom: 10px;
-  color: var(--muted);
-}
+.preview { background: none; border: none; width: 100%; cursor: pointer; position: relative; padding: 0; }
+.preview__play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 50px; color: white; opacity: 0.8; }
+.copy-btn { margin-top: 20px; border: 1px solid var(--accent); background: rgba(83,214,255,0.1); color: white; padding: 10px 18px; border-radius: 10px; cursor: pointer; }
