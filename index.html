@@ -6,8 +6,8 @@
   <title>GeneaLumen — Kalbantis AI avataras</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
 
+<body>
   <nav id="nav" class="nav">
     <div class="nav__inner">
       <a class="nav__brand" href="#top">GeneaLumen</a>
@@ -19,7 +19,8 @@
       <div id="navLinks" class="nav__links">
         <a class="nav__link" href="#avatar">Avataras</a>
         <a class="nav__link" href="#audio">Audio</a>
-        <a class="nav__link" href="#video">Video</a>
+        <a class="nav__link" href="#heygen">HeyGen video</a>
+        <a class="nav__link" href="#research">Tyrimo video</a>
         <a class="nav__link" href="#process">Procesas</a>
         <a class="nav__link" href="#faq">DUK</a>
       </div>
@@ -27,8 +28,7 @@
   </nav>
 
   <main id="top" class="main">
-
-    <header class="hero reveal">
+    <header class="hero">
       <h1>Kalbantis avataras: nuo nuotraukos iki video</h1>
       <p>
         Per tris mėnesius atkūriau savo giminės istoriją 375 metus atgal, remdamasis archyviniais dokumentais ir DI įrankiais.
@@ -36,14 +36,14 @@
       </p>
     </header>
 
-    <section id="avatar" class="section reveal">
+    <section id="avatar" class="section">
       <h2>1) Avataro nuotrauka (Gemini / ChatGPT)</h2>
       <div class="card">
-        <img class="avatar-img" src="assets/img/avatar.png" alt="AI avataras genealogijos temai" />
+        <img class="media-img" src="assets/img/avatar.png" alt="AI avataras genealogijos temai" />
       </div>
     </section>
 
-    <section id="audio" class="section reveal">
+    <section id="audio" class="section">
       <h2>2) Balsas (ElevenLabs)</h2>
       <div class="card">
         <audio controls preload="metadata" class="player">
@@ -53,28 +53,59 @@
       </div>
     </section>
 
-    <section id="video" class="section reveal">
+    <section id="heygen" class="section">
       <h2>3) Kalbantis avataras (HeyGen)</h2>
 
-      <div class="video-card card">
-        <!-- Overlay (tavo JS jį slėps kai paspausi play) -->
-        <div class="video-card__overlay">
-          <div class="video-card__overlay-inner">
-            <strong>Paspausk Play</strong>
-            <span>Video su HeyGen kalbančiu avataru</span>
+      <div class="card">
+        <div class="media-block">
+          <div class="media-hint">Video su HeyGen kalbančiu avataru</div>
+
+          <div class="video-wrap video-wrap--avatar">
+            <video class="video" controls preload="metadata">
+              <source src="assets/video/avatar.mp4" type="video/mp4" />
+              Jūsų naršyklė nepalaiko video.
+            </video>
           </div>
+
+          <p class="note">
+            Pastaba: čia video sąmoningai apribotas iki „standartinio“ dydžio (kad puslapyje neatrodytų per didelis).
+          </p>
         </div>
-
-        <video class="video-card__player" controls preload="metadata">
-          <source src="assets/video/avatar.mp4" type="video/mp4" />
-          Jūsų naršyklė nepalaiko video.
-        </video>
       </div>
-
-      <!-- Jei vietoj mp4 naudosite HeyGen share link – čia galima pakeisti į iframe -->
     </section>
 
-    <section id="process" class="section reveal">
+    <section id="research" class="section">
+      <h2>4) Mano giminės tyrimo video (NotebookLM / kitas)</h2>
+
+      <div class="card">
+        <div class="media-block">
+          <div class="media-hint">Peržiūra (paspausk – atsidarys per visą ekraną)</div>
+
+          <button
+            type="button"
+            class="preview"
+            data-modal-open="researchModal"
+            aria-haspopup="dialog"
+            aria-controls="researchModal"
+          >
+            <span class="preview__badge">Žiūrėti dideliame lange</span>
+
+            <div class="video-wrap video-wrap--preview">
+              <video class="video video--preview" preload="metadata" muted playsinline>
+                <source src="assets/video/genealogy-research.mp4" type="video/mp4" />
+                Jūsų naršyklė nepalaiko video.
+              </video>
+            </div>
+          </button>
+
+          <p class="note">
+            Jei failas per didelis GitHub (25 MB per naršyklę), geriausia mažinti (HandBrake) arba kelti per Git LFS / YouTube / Google Drive ir čia naudoti nuorodą.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="section">
       <h2>Procesas: nuotrauka → audio → video</h2>
 
       <div class="card">
@@ -94,7 +125,7 @@
       </div>
     </section>
 
-    <section id="faq" class="section reveal">
+    <section id="faq" class="section">
       <h2>DUK</h2>
 
       <div class="card">
@@ -108,14 +139,136 @@
         <details class="faq-item">
           <summary class="faq-item__q">Kodėl šis pavyzdys naudingas?</summary>
           <div class="faq-item__a">
-            Jis parodo, kaip sudėtingą temą galima pristatyti interaktyviai ir aiškiai.
+            Jis parodo, kaip sudėtingą temą galima pristatyti aiškiai: nuo turinio kūrimo iki publikavimo.
           </div>
         </details>
       </div>
     </section>
-
   </main>
 
-  <script src="script.js"></script>
+  <!-- MODAL: giminės tyrimo video -->
+  <div id="researchModal" class="modal" role="dialog" aria-modal="true" aria-label="Giminės tyrimo video" aria-hidden="true">
+    <div class="modal__backdrop" data-modal-close="researchModal"></div>
+
+    <div class="modal__panel" role="document">
+      <div class="modal__header">
+        <div class="modal__title">Giminės tyrimo video</div>
+        <button type="button" class="modal__close" data-modal-close="researchModal" aria-label="Uždaryti">✕</button>
+      </div>
+
+      <div class="modal__body">
+        <div class="video-wrap video-wrap--modal">
+          <video id="researchVideo" class="video" controls preload="metadata">
+            <source src="assets/video/genealogy-research.mp4" type="video/mp4" />
+            Jūsų naršyklė nepalaiko video.
+          </video>
+        </div>
+        <p class="note note--modal">
+          Uždarymas: Esc / paspausk foną / X.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Minimalus JS šiame faile (kad veiktų modalas + burger + copy).
+    // Jei nori, gali perkelti į script.js — bet dabar veiks iškart.
+
+    // Burger meniu
+    const navBurger = document.getElementById('navBurger');
+    const navLinks = document.getElementById('navLinks');
+    if (navBurger && navLinks) {
+      navBurger.addEventListener('click', () => {
+        const expanded = navBurger.getAttribute('aria-expanded') === 'true';
+        navBurger.setAttribute('aria-expanded', String(!expanded));
+        navLinks.classList.toggle('nav__links--open');
+      });
+
+      navLinks.addEventListener('click', (e) => {
+        const a = e.target.closest('a');
+        if (a) {
+          navLinks.classList.remove('nav__links--open');
+          navBurger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    // Copy proceso tekstą
+    const copyBtn = document.getElementById('copyBtn');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', async () => {
+        const targetId = copyBtn.getAttribute('data-target');
+        const el = document.getElementById(targetId);
+        if (!el) return;
+
+        const text = el.innerText.trim();
+        try {
+          await navigator.clipboard.writeText(text);
+          copyBtn.classList.add('copy-btn--done');
+          setTimeout(() => copyBtn.classList.remove('copy-btn--done'), 1500);
+        } catch (err) {
+          // fallback
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          copyBtn.classList.add('copy-btn--done');
+          setTimeout(() => copyBtn.classList.remove('copy-btn--done'), 1500);
+        }
+      });
+    }
+
+    // Modal logika
+    const openButtons = document.querySelectorAll('[data-modal-open]');
+    const closeButtons = document.querySelectorAll('[data-modal-close]');
+
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      if (!modal) return;
+      modal.classList.add('modal--open');
+      modal.setAttribute('aria-hidden', 'false');
+
+      // sustabdyk preview video, jei jis groja
+      document.querySelectorAll('video.video--preview').forEach(v => v.pause());
+
+      // auto play (nebūtina) — čia paliekam be autoplay
+      const vid = modal.querySelector('video');
+      if (vid) {
+        // perkeliam į pradžią tik jei nori:
+        // vid.currentTime = 0;
+      }
+
+      document.body.classList.add('no-scroll');
+    }
+
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      if (!modal) return;
+      modal.classList.remove('modal--open');
+      modal.setAttribute('aria-hidden', 'true');
+
+      // pauzė modal video
+      const vid = modal.querySelector('video');
+      if (vid) vid.pause();
+
+      document.body.classList.remove('no-scroll');
+    }
+
+    openButtons.forEach(btn => {
+      btn.addEventListener('click', () => openModal(btn.getAttribute('data-modal-open')));
+    });
+
+    closeButtons.forEach(btn => {
+      btn.addEventListener('click', () => closeModal(btn.getAttribute('data-modal-close')));
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal.modal--open').forEach(m => closeModal(m.id));
+      }
+    });
+  </script>
 </body>
 </html>
